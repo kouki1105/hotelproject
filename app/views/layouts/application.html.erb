@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HotelProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.ico') %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-light">
+          <%= image_tag 'hotelproject.png', width: 40, height: 40, class: 'mr-2', alt: 'ホテルのアイコン' %>
+          <a class="navbar-brand font-italic flex-grow-1" href="/" style="font-size: 30px"><u>Hotel Project</u></a>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="menu" class="collapse navbar-collapse ml-auto">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a href="/" class="nav-link">トップページ</a></li>
+              <li class="nav-item"><a href="/prefectures" class="nav-link">都道府県ごとの一覧</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">HotelProjectについて</a></li>
+              <li class="nav-item"><a href="/contacts/new" class="nav-link">お問い合わせ</a></li>
+              <% if user_signed_in? %>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'  %></li>
+                <li class="nav-item"><%= link_to 'プロフィール編集', edit_user_registration_path, :class => 'nav-link' %></li>
+              <% else %>
+                <li class="nav-item"><%= link_to "ログイン", new_user_session_path, :class => 'nav-link'  %></li>
+                <%= link_to "サインアップ", new_user_registration_path, :class => 'nav-link'  %></li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="mt-5 bg-light py-3">
+      <div class="d-flex justify-content-around">
+        <a href="#"><%= image_tag 'Twitter_Social_Icon_Rounded_Square_Color.png', width: 30, height: 30, alt: 'twitter' %></a>
+        <a href="#"><%= image_tag 'f_logo_RGB-Blue_58.png', width: 30, height: 30, alt: 'facebook' %></a>
+        <a href="#"><%= image_tag 'Instagram_AppIcon_Aug2017.png', width: 30, height: 30, alt: 'instagram' %></a>
+      </div>
+      <div class="text-center text-muted display-5 mt-3">Hotel Project 2020</div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

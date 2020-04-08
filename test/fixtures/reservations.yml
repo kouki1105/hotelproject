@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2020-04-08
+  end_date: 2020-04-08
+  number_of_people: 1
+  name: MyString
+  email: MyString
+  hotel_id: 1
+
+two:
+  start_date: 2020-04-08
+  end_date: 2020-04-08
+  number_of_people: 1
+  name: MyString
+  email: MyString
+  hotel_id: 1

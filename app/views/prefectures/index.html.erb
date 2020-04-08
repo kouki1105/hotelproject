@@ -1,0 +1,14 @@
+<h1>都道府県ごとの一覧</h1>
+
+<div class="row mt-3">
+  <% @prefectures.each do |prefecture| %>
+    <div class="card-deck col-md-2 my-2">
+        <div class="card">
+          <p class="card-img-top" alt="都道府県の写真"><img src="<%= prefecture.picture_url%>" class="img-fluid" /></p>
+          <div class="card-body p-0">
+            <h5 class="card-title text-center"><%= link_to prefecture.name, prefecture_path(prefecture) %></h5>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>

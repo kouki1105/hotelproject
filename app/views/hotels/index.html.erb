@@ -1,0 +1,32 @@
+<div class="cover">
+  <%= search_form_for @q do |f| %>
+    <div class="d-flex bd-highlight">
+      <div class="flex-grow-1"></div>
+      <div><%= f.search_field :name_cont, class: "form-control" , placeholder: "ホテル名" %></div>
+      <div class="px-1"><%= f.search_field :prefecture_name_cont, class: "form-control" , placeholder: "都道府県名" %></div>
+      <div><%= f.submit '検索', class: "btn btn-outline-dark" %></div>
+    </div>
+  <% end %>
+</div>
+
+<h1>ホテル一覧</h1>
+
+<div class="row mt-3">
+  <% @hotels.each do |hotel| %>
+    <div class="col-md-3 my-2">
+      <div class="card h-100">
+        <img src="<%= hotel.picture_url%>" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title"><%= hotel.name %></h5>
+          <p class="card-text">所在地 : <%= hotel.prefecture.name %></p>
+          <p class="card-text"><%= hotel.description %></p>
+          <p class="card-text text-right"><%= link_to '詳細を見る', hotel_path(hotel) %></p>
+        </div>
+        <div class="card-footer text-center d-flex justify-content-around">
+          <%= link_to '予約する', new_hotel_reservation_path(hotel), class: "card-link" %>
+          <%= link_to 'レビュー投稿', new_hotel_review_path(hotel), class: "card-link" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

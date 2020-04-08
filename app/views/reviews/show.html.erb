@@ -1,0 +1,6 @@
+<h1>レビュー詳細</h1>
+<p>名前 : <%= @review.name %></p>
+<p>評価 : <%= @review.rating %></p>
+<p>タイトル : <%= @review.title %></p>
+<p>本文 : <%= @review.body %></p>
+<p><%= link_to @hotel.name + ' レビュー一覧', hotel_reviews_path(@hotel) %></p>

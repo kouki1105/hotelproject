@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @hotel = Hotel.find(params[:hotel_id])
     @reservation = @hotel.reservations.build

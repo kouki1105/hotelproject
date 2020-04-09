@@ -62,3 +62,4 @@ gem 'rails_admin', '~> 2.0'
 gem 'ransack'
 
 gem 'devise'
+gem 'cancancan'

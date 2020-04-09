@@ -2,9 +2,10 @@
 
 <div class="mt-3">
   <%= form_with(model: @contact, local: true) do |form| %>
-    <div class="form-group mb-4">
-      <label for="contact_name">お名前</label>
-      <%= form.text_field :name, id: :contact_name, class: "form-control w-50", placeholder: "お名前" %>
+    <div class="form-group">
+      <label class="w-100" for="contact_user_id">ユーザー名</label>
+      <input class="form-control w-50" type="text" placeholder="<%= @user.name %>" readonly>
+      <%= form.hidden_field :user_id, value: @user.id %>
     </div>
 
     <div class="form-group mb-4">

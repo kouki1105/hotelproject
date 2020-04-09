@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   def new
     @hotel = Hotel.find(params[:hotel_id])
     @review = @hotel.reviews.build
+    @user = current_user
   end
 
   def create
@@ -23,7 +24,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  private
   def review_params
-    params.require(:review).permit(:name, :title, :rating, :body, :hotel_id)
+    params.require(:review).permit(:name, :title, :rating, :body, :hotel_id, :user_id)
   end
 end

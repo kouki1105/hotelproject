@@ -155,6 +155,8 @@
 
     <%= form.hidden_field :hotel_id %>
 
+    <%= form.hidden_field :user_id, value: @user.id %>
+
     <div class="actions">
       <%= form.submit '送信', class: "btn btn-outline-dark" %>
     </div>

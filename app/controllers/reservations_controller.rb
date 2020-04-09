@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   def new
     @hotel = Hotel.find(params[:hotel_id])
     @reservation = @hotel.reservations.build
+    @user = current_user
   end
 
   def create
@@ -18,7 +19,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
+  private
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :number_of_people, :name, :email, :hotel_id)
+    params.require(:reservation).permit(:start_date, :end_date, :number_of_people, :name, :email, :hotel_id, :user_id)
   end
 end

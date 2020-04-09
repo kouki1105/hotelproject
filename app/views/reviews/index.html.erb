@@ -6,7 +6,7 @@
       <h6 class="card-header">評価 : <%= review.rating %></h6>
       <div class="card-body py-2">
         <h6 class="card-title">タイトル : <%= review.title %></h6>
-        <p class="card-subtitle mb-2">名前 : <%= review.name %></p>
+        <p class="card-subtitle mb-2">ユーザー名 : <%= review.user.name %></p>
         <p class="card-text font-weight-bolder"><%= review.body %></p>
         <p class="text-right m-0"><%= link_to 'レビュー詳細', hotel_review_path(@hotel, review) %></p>
       </div>

@@ -15,9 +15,11 @@
     <% end %>
 
     <div class="form-group">
-      <label for="review_name">名前</label>
-      <%= form.text_field :name, class: "form-control w-50", placeholder: "名前" %>
+      <label class="w-100" for="review_user_id">ユーザー名</label>
+      <input class="form-control w-50" type="text" placeholder="<%= @user.name %>" readonly>
+      <%= form.hidden_field :user_id, value: @user.id %>
     </div>
+
 
     <div class="form-group">
       <label class="w-100" for="review_rating">評価</label>

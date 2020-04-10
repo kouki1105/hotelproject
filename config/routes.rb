@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :prefectures, :only => [:index, :show]
+
+  get 'abouts', to: 'abouts#index'
 end

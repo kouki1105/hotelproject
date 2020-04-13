@@ -1,0 +1,3 @@
+id,email,encrypted_password,reset_password_token,reset_password_sent_at,remember_created_at,created_at,updated_at,name,admin_flg
+5,test@gmail.com,$2a$11$XvkoHGEo2vG.fef4x1NtTORp5gtsQTAzkC/8ua2xDV3Ls8MegOi5e,,,,"2020-04-09 06:36:22.850024","2020-04-09 06:36:22.850024",test_user,
+6,kouki1105kyo@gmail.com,$2a$11$rYLlnjWueoUxXOOdPlZX9.ymDHINY0nyr2iijuR1GAF2VtpSH3ywq,,,,"2020-04-10 05:23:47.219632","2020-04-10 05:25:44.918290",kouki.k,1

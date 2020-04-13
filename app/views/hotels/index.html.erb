@@ -18,7 +18,7 @@
         <img src="<%= hotel.picture_url%>" class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title"><%= hotel.name %></h5>
-          <p class="card-text">所在地 : <%= hotel.prefecture.name %></p>
+          <p class="card-text">所在地 : <%= hotel.prefecture&.name %></p>
           <p class="card-text"><%= hotel.description %></p>
           <p class="card-text text-right"><%= link_to '詳細を見る', hotel_path(hotel) %></p>
         </div>

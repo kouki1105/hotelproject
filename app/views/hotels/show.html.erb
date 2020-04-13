@@ -5,7 +5,7 @@
     <img src="<%= @hotel.picture_url%>" class="img-fluid" />
   </div>
   <div class="col-md-7">
-    <h5 class="mb-3">所在地 : <%= @hotel.prefecture.name %></h5>
+    <h5 class="mb-3">所在地 : <%= @hotel.prefecture&.name %></h5>
     <h4 class="mb-5"><%= @hotel.description %></h4>
   </div>
 </div>

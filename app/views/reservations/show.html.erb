@@ -2,7 +2,7 @@
 
 <div class="card mt-3">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><b>ホテル名:　</b><%= @reservation.hotel.name %></li>
+    <li class="list-group-item"><b>ホテル名:　</b><%= @reservation.hotel&.name %></li>
     <li class="list-group-item"><b>氏名:　</b><%= @reservation.name %></li>
     <li class="list-group-item"><b>メールアドレス:　</b><%= @reservation.email %></li>
     <li class="list-group-item"><b>チェックイン日:　</b><%= @reservation.start_date %></li>

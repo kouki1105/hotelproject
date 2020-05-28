@@ -10,3 +10,8 @@
     <li class="list-group-item"><b>人数:　</b><%= @reservation.number_of_people %></li>
   </ul>
 </div>
+
+<div class="d-flex justify-content-around mt-3">
+  <small><%= link_to @hotel.name + "　詳細ページ", hotel_path(@hotel), class: "my-btn" %></small>
+  <small><%= link_to "トップページ", root_path, class: "my-btn" %></small>
+</div>

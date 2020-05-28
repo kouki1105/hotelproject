@@ -11,22 +11,27 @@
 
 <h1>ホテル一覧</h1>
 
-<div class="row mt-3">
-  <% @hotels.order(id: :desc).each do |hotel| %>
-    <div class="col-md-3 my-2">
-      <div class="card h-100">
-        <img src="<%= hotel.picture_url%>" class="card-img-top" />
-        <div class="card-body">
-          <h5 class="card-title"><%= hotel.name %></h5>
-          <p class="card-text">所在地 : <%= hotel.prefecture&.name %></p>
-          <p class="card-text"><%= hotel.description %></p>
-          <p class="card-text text-right"><%= link_to '詳細を見る', hotel_path(hotel) %></p>
-        </div>
-        <div class="card-footer text-center d-flex justify-content-around">
-          <%= link_to '予約する', new_hotel_reservation_path(hotel), class: "card-link" %>
-          <%= link_to 'レビュー投稿', new_hotel_review_path(hotel), class: "card-link" %>
+<% @hotels.in_groups_of(3) do |group| %>
+  <div class="row mt-3">
+    <% group.compact.each do |hotel| %>
+      <div class="card card-hotel col-md-4 my-1 p-0">
+        <img src="<%= hotel.picture_url %>" class="card-img w-100" />
+        <div class="card-img-overlay d-flex align-items-start flex-column p-0 m-0">
+          <h5 class="card-title mb-auto w-100 mb-auto text-center text-hotel"><%= link_to hotel.name, hotel_path(hotel), class: "text-white stretched-link" %></h5>
+          <div class="card-text row w-100 m-0 text-center">
+          <% if hotel.review_average > 9.0 %>
+            <p class="text-hotel w-50 m-0"><%= hotel.review_average %>　最高</p>
+          <% elsif hotel.review_average > 7.0 %>
+            <p class="text-hotel w-50 m-0"><%= hotel.review_average %>　素晴らしい</p>
+          <% elsif hotel.review_average > 5.0 %>
+            <p class="text-hotel w-50 m-0"><%= hotel.review_average %>　良い</p>
+          <% else %>
+            <p class="text-hotel w-50 m-0"><%= hotel.review_average %></p>
+          <% end %>
+            <p class="text-hotel w-50 m-0"><%= hotel.prefecture&.name %></p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>

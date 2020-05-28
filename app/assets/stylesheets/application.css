@@ -30,3 +30,100 @@ h1::after {
   height: 10px;
   background-color: #e0e0e0;
 }
+
+.select_date {
+  display: inline-block;
+}
+
+a.link-ul {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+a.link-ul:hover {
+  color: #333;
+  text-decoration: none;
+}
+a.link-ul::after {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #333;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+a.link-ul:hover::after {
+  transform: scale(1, 1);
+}
+
+.stretched-link:hover {
+  text-decoration: none;
+}
+
+
+.text-hotel {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.card-hotel {
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+  transition: .3s;
+}
+
+.card-hotel:hover {
+  opacity: 0.9;
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+  transform: scale(1.01);
+}
+
+
+.text-prefecture {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.card-prefecture {
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+  transition: .3s;
+}
+
+.card-prefecture:hover {
+  opacity: 0.9;
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+  transform: scale(1.01);
+}
+
+
+a.my-btn {
+  position: relative;
+  display: block;
+  width: 160px;
+  padding: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: #3e62ad;
+  border:1px solid #fff;
+  overflow: hidden;
+}
+
+a.my-btn:before {
+  content:"";
+  position: absolute;
+  top: 0px;
+  left: -150px;
+  height: 100%;
+  width: 160px;
+  background : #fff;
+  opacity: 0.3;
+  transition: .4s;
+}
+a.my-btn:hover:before {
+  left:0;
+  text-decoration: none;
+}

@@ -2,29 +2,18 @@
 
 <div class="mt-3">
   <%= form_with(model: [@hotel, @review], local: true) do |form| %>
-    <% if @review.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this @review from being saved:</h2>
-
-        <ul>
-        <% @review.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render 'layouts/error_messages', model: form.object %>
 
     <div class="form-group">
       <label class="w-100" for="review_user_id">ユーザー名</label>
-      <input class="form-control w-50" type="text" placeholder="<%= @user.name %>" readonly>
-      <%= form.hidden_field :user_id, value: @user.id %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <div class="form-control w-50" style="background-color: #e9ecef;"><%= current_user.name %></div>
     </div>
-
 
     <div class="form-group">
       <label class="w-100" for="review_rating">評価</label>
-      <input name="review[rating]" type="range" class="w-50 custom-range" min="0" max="5" step="0.5" id="customRange3">
-      <span class="ml-3 h5" id="rating">2.5</span>
+      <input name="review[rating]" type="range" class="w-50 custom-range" min="0" max="10" step="1" id="customRange3">
+      <span class="ml-3 h5" id="rating">5</span>
     </div>
 
     <div class="form-group">

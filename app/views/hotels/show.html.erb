@@ -5,24 +5,33 @@
     <img src="<%= @hotel.picture_url%>" class="img-fluid" />
   </div>
   <div class="col-md-7">
-    <h5 class="mb-3">所在地 : <%= @hotel.prefecture&.name %></h5>
-    <h4 class="mb-5"><%= @hotel.description %></h4>
+  <% if @hotel.review_average > 9.0 %>
+    <small>レビュー評価　</small><h4 class="d-inline bg-success border p-1"><%= @hotel.review_average %>　最高</h4>
+  <% elsif @hotel.review_average > 7.0 %>
+    <small>レビュー評価　</small><h4 class="d-inline bg-info border p-1"><%= @hotel.review_average %>　素晴らしい</h4>
+  <% elsif @hotel.review_average > 5.0 %>
+    <small>レビュー評価　</small><h4 class="d-inline bg-light border p-1"><%= @hotel.review_average %>　良い</h4>
+  <% else %>
+    <small>レビュー評価　</small><h4 class="d-inline border p-1"><%= @hotel.review_average %></h4>
+  <% end %>
+    <h5 class="mt-4">所在地 : <%= @hotel.prefecture&.name %></h5>
+    <h4 class="mt-3"><%= @hotel.description %></h4>
   </div>
 </div>
 <div class="my-2 d-flex justify-content-around">
-  <p><%= link_to '予約する', new_hotel_reservation_path(@hotel) %></p>
-  <p><%= link_to 'レビュー一覧', hotel_reviews_path(@hotel) %></p>
-  <p><%= link_to 'レビューを投稿する', new_hotel_review_path(@hotel) %></p>
-  <p><%= link_to 'ホテル一覧', hotels_path %></p>
+  <small><%= link_to '予約する', new_hotel_reservation_path(@hotel), class: "my-btn" %></small>
+  <small><%= link_to 'レビュー一覧', hotel_reviews_path(@hotel), class: "my-btn" %></small>
+  <small><%= link_to 'レビューを投稿する', new_hotel_review_path(@hotel), class: "my-btn" %></small>
+  <small><%= link_to 'ホテル一覧', hotels_path, class: "my-btn" %></small>
 </div>
 <div class="mt-3">
   <h5>最新のレビュー</h5>
-  <% @hotel.reviews.order(created_at: :desc).first(3).each do |review| %>
+  <% @hotel.reviews.order(created_at: :desc).first(5).each do |review| %>
     <div class="card my-2">
       <h6 class="card-header">評価 : <%= review.rating %></h6>
       <div class="card-body">
         <h6 class="card-title">タイトル : <%= review.title %></h6>
-        <p class="card-subtitle mb-2">名前 : <%= review.name %></p>
+        <p class="card-subtitle mb-2">ユーザー名 : <%= review.user.name %></p>
         <p class="card-text font-weight-bolder"><%= review.body %></p>
       </div>
     </div>

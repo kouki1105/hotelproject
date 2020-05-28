@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @hotel = Hotel.find(params[:hotel_id])
     @reviews = @hotel.reviews
@@ -8,7 +9,6 @@ class ReviewsController < ApplicationController
   def new
     @hotel = Hotel.find(params[:hotel_id])
     @review = @hotel.reviews.build
-    @user = current_user
   end
 
   def create
@@ -16,6 +16,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     if @review.save
       redirect_to hotel_reviews_path(@hotel)
+    else
+      render "new"
     end
   end
 

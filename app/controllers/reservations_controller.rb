@@ -3,7 +3,6 @@ class ReservationsController < ApplicationController
   def new
     @hotel = Hotel.find(params[:hotel_id])
     @reservation = @hotel.reservations.build
-    @user = current_user
   end
 
   def create
@@ -11,6 +10,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       redirect_to hotel_reservation_path(@hotel, @reservation)
+    else
+      render "new"
     end
   end
 

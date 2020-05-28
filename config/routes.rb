@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   root to: 'hotels#index'
 
-  get 'contacts/new', to: 'contacts#new', as: 'new_contact'
-  post 'contacts', to: 'contacts#create'
-  get 'contacts/:id', to: 'contacts#show', as: 'contact'
+  # get 'contacts/new', to: 'contacts#new', as: 'new_contact'
+  # post 'contacts', to: 'contacts#create'
+  # get 'contacts/:id', to: 'contacts#show', as: 'contact'
+
+  resources :contacts, :only => [:new, :create, :show]
 
   resources :hotels, :only => [:index, :show] do
     resources :reviews, :except => [:edit, :update, :destroy]

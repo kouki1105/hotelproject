@@ -19,14 +19,14 @@
         <div class="card-img-overlay d-flex align-items-start flex-column p-0 m-0">
           <h5 class="card-title mb-auto w-100 mb-auto text-center text-hotel"><%= link_to hotel.name, hotel_path(hotel), class: "text-white stretched-link" %></h5>
           <div class="card-text row w-100 m-0 text-center">
-          <% if hotel.review_average > 9.0 %>
-            <p class="text-hotel w-50 m-0"><%= hotel.review_average %>　最高</p>
-          <% elsif hotel.review_average > 7.0 %>
-            <p class="text-hotel w-50 m-0"><%= hotel.review_average %>　素晴らしい</p>
-          <% elsif hotel.review_average > 5.0 %>
-            <p class="text-hotel w-50 m-0"><%= hotel.review_average %>　良い</p>
+          <% if hotel&.review_average > 9.0 %>
+            <p class="text-hotel w-50 m-0"><%= hotel&.review_average %>　最高</p>
+          <% elsif hotel&.review_average > 7.0 %>
+            <p class="text-hotel w-50 m-0"><%= hotel&.review_average %>　素晴らしい</p>
+          <% elsif hotel&.review_average > 5.0 %>
+            <p class="text-hotel w-50 m-0"><%= hotel&.review_average %>　良い</p>
           <% else %>
-            <p class="text-hotel w-50 m-0"><%= hotel.review_average %></p>
+            <p class="text-hotel w-50 m-0"><%= hotel&.review_average %></p>
           <% end %>
             <p class="text-hotel w-50 m-0"><%= hotel.prefecture&.name %></p>
           </div>

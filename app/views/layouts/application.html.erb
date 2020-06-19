@@ -14,28 +14,28 @@
 
   <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4">
-          <%= image_tag 'hotelproject.png', width: 40, height: 40, class: 'mr-2', alt: 'ホテルのアイコン' %>
-          <a class="navbar-brand font-italic flex-grow-1" href="/" style="font-size: 30px"><u>Hotel Project</u></a>
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div id="menu" class="collapse navbar-collapse ml-auto">
-            <ul class="navbar-nav">
-              <li class="nav-item"><a href="/" class="nav-link link-ul">トップページ</a></li>
-              <li class="nav-item"><a href="/prefectures" class="nav-link link-ul">都道府県ごとの一覧</a></li>
-              <li class="nav-item"><a href="/abouts" class="nav-link link-ul">HotelProjectについて</a></li>
-              <li class="nav-item"><a href="/contacts/new" class="nav-link link-ul">お問い合わせ</a></li>
-              <% if user_signed_in? %>
-                <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link link-ul'  %></li>
-                <li class="nav-item"><%= link_to 'プロフィール編集', edit_user_registration_path, :class => 'nav-link link-ul' %></li>
-              <% else %>
-                <li class="nav-item"><%= link_to "ログイン", new_user_session_path, :class => 'nav-link link-ul'  %></li>
-                <%= link_to "サインアップ", new_user_registration_path, :class => 'nav-link link-ul'  %></li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4">
+        <%= image_tag 'hotelproject.png', width: 40, height: 40, class: 'mr-2', alt: 'ホテルのアイコン' %>
+        <a class="navbar-brand font-italic flex-grow-1" href="/" style="font-size: 30px"><u>Hotel Project</u></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="menu" class="collapse navbar-collapse ml-auto">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="/" class="nav-link link-ul">トップページ</a></li>
+            <li class="nav-item"><a href="/prefectures" class="nav-link link-ul">都道府県ごとの一覧</a></li>
+            <li class="nav-item"><a href="/abouts" class="nav-link link-ul">HotelProjectについて</a></li>
+            <li class="nav-item"><a href="/contacts/new" class="nav-link link-ul">お問い合わせ</a></li>
+            <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link link-ul'  %></li>
+              <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), :class => 'nav-link link-ul' %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, :class => 'nav-link link-ul'  %></li>
+              <%= link_to "サインアップ", new_user_registration_path, :class => 'nav-link link-ul'  %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <div class="container">

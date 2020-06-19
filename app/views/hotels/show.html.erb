@@ -5,14 +5,14 @@
     <img src="<%= @hotel.picture_url%>" class="img-fluid" />
   </div>
   <div class="col-md-7">
-  <% if @hotel&.review_average > 9.0 %>
-    <small>レビュー評価　</small><h4 class="d-inline bg-success border p-1"><%= @hotel&.review_average %>　最高</h4>
-  <% elsif @hotel&.review_average > 7.0 %>
-    <small>レビュー評価　</small><h4 class="d-inline bg-info border p-1"><%= @hotel&.review_average %>　素晴らしい</h4>
-  <% elsif @hotel&.review_average > 5.0 %>
-    <small>レビュー評価　</small><h4 class="d-inline bg-light border p-1"><%= @hotel&.review_average %>　良い</h4>
+  <% if @hotel.review_average > 9.0 %>
+    <small>レビュー評価　</small><h4 class="d-inline bg-success border p-1"><%= @hotel.review_average %>　最高</h4>
+  <% elsif @hotel.review_average > 7.0 %>
+    <small>レビュー評価　</small><h4 class="d-inline bg-info border p-1"><%= @hotel.review_average %>　素晴らしい</h4>
+  <% elsif @hotel.review_average > 5.0 %>
+    <small>レビュー評価　</small><h4 class="d-inline bg-light border p-1"><%= @hotel.review_average %>　良い</h4>
   <% else %>
-    <small>レビュー評価　</small><h4 class="d-inline border p-1"><%= @hotel&.review_average %></h4>
+    <small>レビュー評価　</small><h4 class="d-inline border p-1"><%= @hotel.review_average %></h4>
   <% end %>
     <h5 class="mt-4">所在地 : <%= @hotel.prefecture&.name %></h5>
     <h4 class="mt-3"><%= @hotel.description %></h4>

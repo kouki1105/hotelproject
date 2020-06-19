@@ -29,6 +29,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-md-6 text-center", placeholder: "パスワード（確認）" %>
     </div>
 
+    <%= form.file_field :picture %>
+
     <div class="actions mb-3">
       <%= f.submit "サインアップ", class: "btn btn-outline-dark" %>
     </div>
